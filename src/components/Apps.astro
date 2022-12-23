@@ -1,0 +1,14 @@
+<section class="apps">
+  {
+    apps.map((app) => (
+      <div class="app">
+        {app.paid && <span class="paid tag">Paid</span>}
+        <div class="icon" style={{ backgroundImage: `url(${app.icon})` }} />
+        <div class="content">
+          <h3 class="title">{app.title}</h3>
+          <p class="description">{app.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</section>

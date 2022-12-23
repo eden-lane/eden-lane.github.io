@@ -1,0 +1,80 @@
+---
+import MainLayout from "../../layouts/Main.astro";
+import data from "../../data/goods.json";
+---
+
+<style>
+  .goods {
+    margin-top: 15px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: masonry;
+  }
+
+  .thing {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: all ease-out 300ms;
+    height: min-content;
+    padding: 5px;
+  }
+
+  .thing > img {
+    transition: all ease-out 300ms;
+    width: auto;
+    height: auto;
+  }
+
+  .thing:hover > img {
+    filter: blur(5px);
+  }
+
+  .thing:hover > .content {
+    opacity: 1;
+  }
+
+  .content {
+    padding: 10px;
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+    color: #fff;
+    transition: all ease-out 300ms;
+  }
+
+  .content > h2 {
+    color: inherit;
+  }
+
+  .content > p {
+    font-size: 14px;
+  }
+</style>
+
+<MainLayout>
+  <div></div>
+  <section class="goods">
+    {
+      data.map((thing) => (
+        <a class="thing">
+          <div class="content">
+            <h2>{thing.title}</h2>
+            <p>
+              {thing.description}
+            </p>
+          </div>
+          <img src={thing.photo} />
+        </a>
+      ))
+    }
+  </section>
+</MainLayout>

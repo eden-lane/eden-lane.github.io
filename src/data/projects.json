@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Week",
+    "links": {
+      "site": "https://getweek.pro"
+    },
+    "status": "live",
+    "logo": "/icons/week.svg",
+    "description": "Task management tool with a heavy focus on planning."
+  },
+  {
+    "title": "Kite",
+    "links": {
+      "github": "https://github.com/app-kite/kite"
+    },
+    "status": "frozen",
+    "logo": "/icons/kite.png",
+    "description": "Tool for gathering customer feedback"
+  }
+]

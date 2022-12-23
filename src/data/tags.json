@@ -1,0 +1,22 @@
+[
+  {
+    "name": "TypeScript",
+    "background": "#3178C6",
+    "color": "#ffffff"
+  },
+  {
+    "name": "React",
+    "background": "#62CEEC",
+    "color": "#fff"
+  },
+  {
+    "name": "GraphQL",
+    "background": "#E535AB",
+    "color": "#fff"
+  },
+  {
+    "name": "NodeJS",
+    "background": "#84CC2D",
+    "color": "#fff" 
+  }
+]

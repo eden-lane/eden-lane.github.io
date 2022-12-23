@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Week",
+    "description": "Task management app I’m currently working on",
+    "backgroundColor": {
+      "start": "#F6EDB9",
+      "end": "#f3d536"
+    },
+    "color": "#444",
+    "icon": "week.svg",
+    "url": "/projects/week"
+  },
+  {
+    "title": "Applications",
+    "description": "Apps that I use or can recommend",
+    "backgroundColor": {
+      "start": "#92e598",
+      "end": "#1ced27"
+    },
+    "color": "#444",
+    "icon": "app.svg",
+    "url": "/apps"
+  }
+]

@@ -1,0 +1,108 @@
+---
+import About from "../components/About.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Back from "../components/Back.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+const { frontmatter } = Astro.props;
+---
+
+<style>
+  body {
+    padding-top: 64px;
+  }
+
+  article {
+    display: flex;
+    gap: 48px;
+  }
+
+  article > div {
+  }
+
+  article > img {
+    flex: 1 0;
+  }
+
+  header {
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  header .description {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .screenshot {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .logo {
+    height: 42px;
+    width: 42px;
+  }
+
+  .content {
+    margin-top: 16px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .button {
+    padding: 6px 16px;
+    background-color: #03A9F4;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+</style>
+
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+<body>
+  <Header title={SITE_TITLE} />
+  <Back />
+  <article>
+    <div>
+      <header>
+        <div>
+          <img class="logo" src={frontmatter.logo} />
+          <h1>{frontmatter.title}</h1>
+        </div>
+        <p class="description">
+          {frontmatter.description}
+        </p>
+      </header>
+      <section class="content">
+        <slot />
+      </section>
+    </div>
+    <div class="info">
+      <img class="screenshot" src={frontmatter.screenshot} />
+      <a class="button" href={frontmatter.link}>
+        {frontmatter.linkTitle}
+      </a>
+    </div>
+  </article>
+</body>

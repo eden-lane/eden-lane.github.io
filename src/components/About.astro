@@ -1,0 +1,86 @@
+---
+import tags from '../data/tags.json';
+---
+<style>
+  article {
+    margin: 40px 0 20px;
+  }
+
+  .about {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .tags {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 4px;
+  }
+  
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    text-shadow: 0 0 2px #00000054;
+  }
+  
+
+  .links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+  }
+
+  .icon {
+    opacity: 0.6;
+  }
+
+  .icon:hover {
+    opacity: 1;
+  }
+
+  hr {
+    margin: 20px 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+</style>
+<article>
+  <h2>About</h2>
+  <p class="about">
+    Hello, I’m <strong>eden lane</strong>, a frontend engineer.
+  </p>
+  <p class="about">
+    I am a frontend engineer from Russia, Moscow. I have been developing
+    websites and apps for more than 7 years. When I switched from C# to
+    JavaScript back in 2015, I had a strong belief that web apps are the future.
+    
+  </p>
+  <p class="about">
+    Ever since then, I have been trying to make the future closer to people.
+  </p>
+  <ul class="tags">
+    {
+      tags.map(tag => (
+        <li class="tag" style={{
+          backgroundColor: tag.background,
+          color: tag.color
+        }}>{tag.name}</li>
+      ))
+    }
+  </ul>
+  <p class="links">
+    <a class="icon" target="_blank" href="https://t.me/eden_lane">
+      <img src="/icons/telegram.svg" />
+    </a>
+    <a class="icon" target="_blank" href="https://twitter.com/lane_en">
+      <img src="/icons/twitter.svg" />
+    </a>
+    <a class="icon" target="_blank" href="https://github.com/eden-lane">
+      <img src="/icons/github.svg" />
+    </a>
+  </p>
+</article>

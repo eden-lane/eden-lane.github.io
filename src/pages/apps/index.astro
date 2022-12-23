@@ -1,0 +1,81 @@
+---
+import MainLayout from "../../layouts/Main.astro";
+import Back from "../../components/Back.astro";
+import apps from "../../data/apps.json";
+---
+
+<style>
+  .apps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .app {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: all ease-out 300ms;
+  }
+
+  .app:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-size: contain;
+    border-radius: 6px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .tag {
+    border-radius: 3px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 12px;
+    padding: 2px 5px;
+  }
+
+  .paid {
+    background-color: #f6ffdd;
+    color: #4b9727;
+  }
+</style>
+<MainLayout>
+  <Back />
+  <div></div>
+  <section class="apps">
+    {
+      apps.map((app) => (
+        <a href={app.url} target="_blank" class="app">
+          {app.paid && <span class="paid tag">Paid</span>}
+          <div class="icon" style={{ backgroundImage: `url(${app.icon})` }} />
+          <div class="content">
+            <h3 class="title">{app.title}</h3>
+            <p class="description">{app.description}</p>
+          </div>
+        </a>
+      ))
+    }
+  </section>
+</MainLayout>
