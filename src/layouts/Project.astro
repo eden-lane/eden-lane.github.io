@@ -18,6 +18,12 @@ const { frontmatter } = Astro.props;
     gap: 48px;
   }
 
+  @media(max-width: 736px) {
+    article {
+      flex-direction: column;
+    }
+  }
+
   article > div {
   }
 
