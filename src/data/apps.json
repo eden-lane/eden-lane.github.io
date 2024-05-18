@@ -9,21 +9,15 @@
     "title": "Craft",
     "description": "I use this app for notes. It might be not as powerful as Notion, but it has sick design and everything that I need from such kind of application.",
     "icon": "/icons/craft.png",
-    "paid": true,
+    "paid": "$8 per month",
     "url": "https://craft.do"
   },
   {
-    "title": "VS Code",
-    "description": "I used to be a WebStorm guy, but now it's impossible to buy a license in Russia so I switched to Microsoft's code editor and it is pretty descent I must say.",
-    "icon": "/icons/vscode.png",
+    "title": "Webstorm",
+    "description": "I really hate the design of VSCode. WebStorm lacks some of the features I need, but it is still very good.",
+    "icon": "/icons/webstorm.png",
+    "paid": "€83.49 per year",
     "url": "https://code.visualstudio.com/"
-  },
-  {
-    "title": "Telegram",
-    "description": "It's hard to believe that somebody might use something other than Telegram for everyday messaging. It's the best messenger I've ever used.",
-    "icon": "/icons/telegram.png",
-    "paid": true,
-    "url": "https://telegram.org/"
   },
   {
     "title": "Linear",
@@ -35,14 +29,14 @@
     "title": "Fork",
     "description": "I rarely use git from command line, so I needed a good GUI client for it. I think Fork is the best.",
     "icon": "/icons/fork.png",
-    "paid": true,
+    "paid": "$59.99",
     "url": "https://git-fork.com/"
   },
   {
     "title": "1Password",
     "description": "Yes, I trust all my passwords to one app and it is 1Password. I like UI and UX, it's one of the most pleasant to use Mac apps",
     "icon": "/icons/1password.svg",
-    "paid": true,
+    "paid": "$2.99 per month",
     "url": "https://1password.com/"
   }
 ]

@@ -1,0 +1,137 @@
+.main {
+    display: grid;
+    width: 800px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+@media screen and (max-width: 860px) {
+    .main {
+        width: 100%;
+        padding: 0 16px;
+    }
+}
+
+.about {
+    grid-column: span 2;
+}
+
+.about .body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about .body > img {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.lastfm {
+    background: #F34141 !important;
+    color: #fff !important;
+}
+
+.map {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.twitter {
+    background: #222 !important;
+    color: #fff;
+}
+
+.twitter .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.twitter .body a {
+    color: #fff;
+}
+
+.week > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    color: #555;
+}
+
+.apps .body {
+    padding-top: 16px;
+    padding-right: 8px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+.apps .body::-webkit-scrollbar {
+    width: 2px;
+}
+
+.apps .body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.apps .body .info {
+    display: none;
+    font-size: 12px;
+}
+
+.apps .body > .app > img {
+    border-radius: 4px;
+}
+
+.apps .body > .app {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+}
+
+.apps .body > .app:not(:nth-child(2)) {
+    transform: scale(0.75);
+}
+
+.apps .body > .app:nth-child(2) {
+    transform: scale(1.5);
+}
+
+.lastfm .info {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.apps.open {
+    height: unset !important;
+    max-height: 400px;
+}
+
+.apps.open .body {
+    display: block;
+}
+
+.apps.open .body > .app {
+    transform: scale(1);
+    margin-bottom: 8px;
+}
+
+.apps.open .body .info {
+    display: block;
+}
+
+.paid {
+    color: #599919;
+}
+
