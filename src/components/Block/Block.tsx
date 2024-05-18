@@ -13,7 +13,7 @@ type Props = {
   style: any;
 }
 
-export const Block: React.FC<Props> = forwardRef((props, ref) => {
+export const Block: React.FC<Props> = forwardRef(function Block(props, ref) {
     const { isOpen, className, children, onClick, style } = props;
 
     return (

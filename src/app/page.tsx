@@ -29,7 +29,7 @@ export default function Home() {
             <h2>About</h2>
             <div className={styles.body}>
               <div>
-                <p>I'm <strong>eden lane</strong>, frontend engineer from Benidorm, Spain.</p>
+                <p>I&apos;m <strong>eden lane</strong>, frontend engineer from Benidorm, Spain.</p>
                 <p>In my free time I build <a target="_blank" href="https://getweek.pro">Week</a> - task manager with an
                   integrated
                   calendar.</p>
