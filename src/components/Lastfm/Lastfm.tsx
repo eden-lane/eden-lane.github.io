@@ -22,7 +22,7 @@ type Response = {
 }
 
 export const Lastfm = () => {
-  const { data } = useSWR<Response>("/lastfm", (url) => fetch(url).then((res) => res.json()));
+  const { data } = useSWR<Response>("/lastfm", (url: string) => fetch(url).then((res) => res.json()));
 
   return (
     <div className={styles.track}>

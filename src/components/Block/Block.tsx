@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, Ref, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import clsx from "clsx";
 import { useTransition, animated, useSpring } from "@react-spring/web";
 import styles from "./Block.module.css";
@@ -8,13 +8,12 @@ import styles from "./Block.module.css";
 type Props = {
   className?: string;
   children: React.ReactNode;
-  isOpen: boolean;
   onClick?: () => void;
   style: any;
 }
 
-export const Block: React.FC<Props> = forwardRef(function Block(props, ref) {
-    const { isOpen, className, children, onClick, style } = props;
+export const Block = forwardRef(function Block(props: Props, ref: Ref<HTMLDivElement>) {
+    const { className, children, onClick, style } = props;
 
     return (
       <>

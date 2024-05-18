@@ -53,6 +53,7 @@ export default function Home() {
     {
       name: "map",
       render: (style, index) => {
+        /* @ts-ignore */
         return (
           <Block style={style} ref={handleRef(index)} className={styles.map} isOpen={open === "map"}
                  onClick={() => handleClick("map")}>
