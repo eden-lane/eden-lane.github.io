@@ -16,9 +16,17 @@ body {
 body {
   background-color: #fafafa;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding-top: 64px;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+footer {
+  margin: 24px 0;
+  font-size: 12px;
+  opacity: 0.6;
+  text-align: center;
 }
 
 h2 {
