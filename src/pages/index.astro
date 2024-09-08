@@ -1,0 +1,64 @@
+---
+import MainLayout from '../layouts/main.astro';
+import Block from '../components/block.astro';
+import { LastfmBlock } from '../components/LastfmBlock/LastfmBlock';
+import { X } from '../components/icons/X';
+import { Layers } from '../components/icons/Layers';
+import { Github } from '../components/icons/Github';
+---
+<style>
+  p {
+    font-size: 14px;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #e8e8e8;
+    margin: 16px 0;
+  }
+
+  .links {
+    font-size: 12px;
+    display: flex;
+    column-gap: 8px;
+
+    & a {
+      display: flex;
+      column-gap: 2px;
+      align-items: center;
+      color: #4d4d4d;
+      text-decoration: none;
+      opacity: 0.65;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+</style>
+<MainLayout title="eden lane">
+  <p>
+    Hola! I'm a frontend engineer who loves to build things that make people's lives easier.
+    <br />
+    I'm open to new opportunities at the moment, so don't hesitate to reach out!
+    <br />
+    You can find me here:
+  </p>
+  <div class="links">
+    <a href="https://x.com/lane_en">
+      <X width="16" height="16" />
+    </a>
+    <a href="https://github.com/eden-lane">
+      <Github width="16" height="16" />
+    </a>
+    <a href="https://layers.to/eden_lane">
+      <Layers width="16" height="16" />
+    </a>
+  </div>
+  <hr />
+  <Block>
+    <LastfmBlock client:load />
+  </Block>
+</MainLayout>

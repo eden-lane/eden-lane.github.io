@@ -1,0 +1,96 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+.header {
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  color: inherit;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.toggle {
+  cursor: pointer;
+  display: flex;
+  column-gap: 0;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.track {
+  cursor: pointer;
+  display: flex;
+  padding: 8px;
+  border-radius: 8px;
+  column-gap: 8px;
+  transition: background-color, opacity 0.2s ease-in-out;
+  color: inherit;
+  text-decoration: none;
+}
+
+.track:not(:first-of-type) {
+  opacity: 0.5;
+}
+
+.track:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.info {
+  display: flex;
+  column-gap: 8px;
+  flex: 1;
+}
+
+.cover {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+}
+
+.artist, .title {
+  font-size: 12px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.date {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.now {
+  font-size: 11px;
+  color: #c42626;
+}
+
+.skeleton {
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+.skeleton.title {
+  width: 200px;
+  height: 16px;
+}
+
+.skeleton.artist {
+  width: 70px;
+  height: 14px;
+}
+
+.skeleton.title + .skeleton.artist {
+  margin-top: 4px;
+}

@@ -1,29 +1,26 @@
 {
-  "name": "edencore.dev",
-  "version": "0.1.0",
-  "private": true,
+  "name": "orbital-orbit",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.3",
-    "lastfm-ts-api": "^2.1.0",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "swr": "^2.2.5",
-    "twitter-api-v2": "^1.16.4"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/vercel": "^7.8.0",
+    "@fontsource-variable/open-sans": "^5.0.31",
+    "@react-spring/web": "^9.7.4",
+    "astro": "^4.15.4",
     "clsx": "^2.1.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
-    "typescript": "^5"
+    "date-fns": "^3.6.0",
+    "lastfm-ts-api": "^2.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4"
   }
 }
