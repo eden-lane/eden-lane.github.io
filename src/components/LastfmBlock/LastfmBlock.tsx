@@ -91,6 +91,7 @@ export const LastfmBlock = () => {
               )}
               {track.isNowPlaying && (
                 <div className={styles.now}>
+                  <Equalizer />
                   <span>Now Playing</span>
                 </div>
               )}
@@ -114,6 +115,16 @@ const Cover = (props: CoverProps) => {
   ) : (
     <div className={styles.cover}>
       <Music width={32} height={32} />
+    </div>
+  );
+};
+
+const Equalizer = () => {
+  return (
+    <div className={styles.equalizer}>
+      <div className={styles.bar} />
+      <div className={styles.bar} />
+      <div className={styles.bar} />
     </div>
   );
 };

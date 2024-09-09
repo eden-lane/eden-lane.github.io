@@ -22,9 +22,10 @@
 .track {
     cursor: pointer;
     display: flex;
+    column-gap: 8px;
+    align-items: flex-start;
     padding: 8px;
     border-radius: 8px;
-    column-gap: 8px;
     transition: background-color, opacity 0.2s ease-in-out;
     color: inherit;
     text-decoration: none;
@@ -67,7 +68,10 @@
 }
 
 .now {
+    display: flex;
+    gap: 4px;
     font-size: 11px;
+    align-items: center;
     color: #c42626;
 }
 
@@ -88,4 +92,57 @@
 
 .skeleton.title + .skeleton.artist {
     margin-top: 4px;
+}
+
+@keyframes bar1 {
+    0%, 100% {
+        height: 8px;
+    }
+    50% {
+        height: 4px;
+    }
+}
+
+@keyframes bar2 {
+    0%, 100% {
+        height: 2px;
+    }
+    50% {
+        height: 8px;
+    }
+}
+
+@keyframes bar3 {
+    0%, 100% {
+        height: 4px;
+    }
+    50% {
+        height: 6px;
+    }
+}
+
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 1px;
+    height: 10px;
+}
+
+.bar {
+    background-color: #c42626;
+    width: 2px;
+    height: 10px;
+    border-radius: 1px;
+
+    &:nth-child(1) {
+        animation: bar1 1s ease-in-out infinite;
+    }
+
+    &:nth-child(2) {
+        animation: bar2 1s ease-in-out infinite;
+    }
+
+    &:nth-child(3) {
+        animation: bar3 1s ease-in-out infinite;
+    }
 }
