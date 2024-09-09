@@ -1,42 +1,51 @@
 ---
-import MainLayout from '../layouts/main.astro';
-import Block from '../components/Block.astro';
-import { LastfmBlock } from '../components/LastfmBlock/LastfmBlock';
-import { X } from '../components/icons/X';
-import { Layers } from '../components/icons/Layers';
-import { Github } from '../components/icons/Github';
+import MainLayout from "../layouts/main.astro";
+import Block from "../components/Block.astro";
+import { LastfmBlock } from "../components/LastfmBlock/LastfmBlock";
+import { AppsBlock } from "../components/AppsBlock";
+import { X } from "../components/icons/X";
+import { Layers } from "../components/icons/Layers";
+import { Github } from "../components/icons/Github";
 ---
 <style>
-  p {
-    font-size: 14px;
-  }
-
-  hr {
-    border: none;
-    height: 1px;
-    background-color: #e8e8e8;
-    margin: 16px 0;
-  }
-
-  .links {
-    font-size: 12px;
-    display: flex;
-    column-gap: 8px;
-
-    & a {
-      display: flex;
-      column-gap: 2px;
-      align-items: center;
-      color: #4d4d4d;
-      text-decoration: none;
-      opacity: 0.65;
-      transition: all 0.3s ease;
-
-      &:hover {
-        opacity: 1;
-      }
+    p {
+        font-size: 14px;
     }
-  }
+
+    hr {
+        border: none;
+        height: 1px;
+        background-color: #e8e8e8;
+        margin: 16px 0;
+    }
+
+    .links {
+        font-size: 12px;
+        display: flex;
+        column-gap: 8px;
+
+        & a {
+            display: flex;
+            column-gap: 2px;
+            align-items: center;
+            color: #4d4d4d;
+            text-decoration: none;
+            opacity: 0.65;
+            transition: all 0.3s ease;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .blocks {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        row-gap: 8px;
+        margin-top: 16px;
+    }
 </style>
 <MainLayout title="eden lane">
   <p>
@@ -47,18 +56,23 @@ import { Github } from '../components/icons/Github';
     You can find me here:
   </p>
   <div class="links">
-    <a href="https://x.com/lane_en">
+    <a target="_blank" href="https://x.com/lane_en">
       <X width="16" height="16" />
     </a>
-    <a href="https://github.com/eden-lane">
+    <a target="_blank" href="https://github.com/eden-lane">
       <Github width="16" height="16" />
     </a>
-    <a href="https://layers.to/eden_lane">
+    <a target="_blank" href="https://layers.to/eden_lane">
       <Layers width="16" height="16" />
     </a>
   </div>
   <hr />
-  <Block>
-    <LastfmBlock client:load />
-  </Block>
+  <div class="blocks">
+    <Block>
+      <LastfmBlock client:load />
+    </Block>
+    <Block>
+      <AppsBlock client:load />
+    </Block>
+  </div>
 </MainLayout>

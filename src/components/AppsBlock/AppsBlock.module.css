@@ -1,0 +1,46 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.logo {
+    width: 24px;
+    height: 24px;
+}
+
+.apps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transition: all 0.2s ease-in-out;
+    column-gap: 4px;
+    justify-content: center;
+    padding: 0 8px;
+
+    &.vertical {
+        flex-direction: column;
+        row-gap: 4px;
+
+        & .app {
+            border-radius: 4px;
+            padding: 4px;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.03);
+            }
+        }
+    }
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease-in-out;
+}
+
+

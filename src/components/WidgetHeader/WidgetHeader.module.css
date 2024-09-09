@@ -1,0 +1,31 @@
+.header {
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    color: inherit;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 0 8px;
+}
+
+.toggle {
+    cursor: pointer;
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+}

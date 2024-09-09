@@ -38,5 +38,11 @@
     "icon": "/icons/1password.svg",
     "paid": "$2.99 per month",
     "url": "https://1password.com/"
+  },
+  {
+    "title": "Apple Music",
+    "description": "",
+    "icon": "/icons/music.svg",
+    "url": "https://music.apple.com/"
   }
 ]
