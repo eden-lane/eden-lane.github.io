@@ -96,7 +96,7 @@
 
 @keyframes bar1 {
     0%, 100% {
-        height: 8px;
+        height: 7px;
     }
     50% {
         height: 4px;

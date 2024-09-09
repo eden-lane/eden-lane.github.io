@@ -16,7 +16,7 @@
     transition: all 0.2s ease-in-out;
     column-gap: 4px;
     justify-content: center;
-    padding: 0 8px;
+    padding: 0 4px;
 
     &.vertical {
         flex-direction: column;
@@ -43,4 +43,19 @@
     transition: all 0.2s ease-in-out;
 }
 
+.info {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}
 
+.price {
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ecffec;
+    border-radius: 4px;
+    padding: 0 4px;
+    color: #1dad1d;
+}

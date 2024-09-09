@@ -23,7 +23,7 @@ export const AppsBlock = () => {
 
   return (
     <div className={styles.root}>
-      <WidgetHeader title="Apps I use a lot" isOpen={isOpen} onToggle={setOpen} />
+      <WidgetHeader title="Apps I Use a Lot" isOpen={isOpen} onToggle={setOpen} />
       <div className={`${styles.apps} ${styles.vertical}`}>
         {apps.slice(0, isOpen ? undefined : 3).map((app, index) => {
           return (
@@ -35,8 +35,9 @@ export const AppsBlock = () => {
               target="_blank"
               rel="noopener noreferrer">
               <img className={styles.logo} src={app.icon} alt={app.title} />
-              <div>
+              <div className={styles.info}>
                 <div className={styles.title}>{app.title}</div>
+                {app.paid && <span className={styles.price}>$</span>}
               </div>
             </animated.a>
           );
