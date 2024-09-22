@@ -17,7 +17,7 @@
     "description": "I really hate the design of VSCode. WebStorm lacks some of the features I need, but it is still very good.",
     "icon": "/icons/webstorm.png",
     "paid": "€83.49 per year",
-    "url": "https://code.visualstudio.com/"
+    "url": "https://www.jetbrains.com/webstorm/"
   },
   {
     "title": "Linear",
@@ -45,5 +45,12 @@
     "icon": "/icons/music.svg",
     "paid": "€1.6 per month",
     "url": "https://music.apple.com/"
+  },
+  {
+    "title": "Raycast",
+    "description": "",
+    "icon": "/icons/raycast.svg",
+    "paid": "$8 per month",
+    "url": "https://raycast.com/"
   }
 ]

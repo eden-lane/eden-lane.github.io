@@ -3,11 +3,23 @@ import MainLayout from "../layouts/main.astro";
 import Block from "../components/Block.astro";
 import { LastfmBlock } from "../components/LastfmBlock/LastfmBlock";
 import { AppsBlock } from "../components/AppsBlock";
+import { Telegram } from "../components/icons/Telegram";
 import { X } from "../components/icons/X";
 import { Layers } from "../components/icons/Layers";
 import { Github } from "../components/icons/Github";
 ---
 <style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     p {
         font-size: 14px;
     }
@@ -46,18 +58,43 @@ import { Github } from "../components/icons/Github";
         row-gap: 8px;
         margin-top: 16px;
     }
+
+    .block {
+        opacity: 0;
+        animation: fadeIn 0.5s ease forwards;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+    .link {
+        display: inline-flex;
+        column-gap: 2px;
+        color: #1f8be4;
+        text-decoration: none;
+        line-height: 1.5;
+    }
 </style>
 <MainLayout title="eden lane">
-  <p>
+  <p class="block" style="animation-delay: 0s">
     Hola! I'm a frontend engineer who loves to build things that make people's lives easier.
     <br />
-    I'm open to new opportunities at the moment, so don't hesitate to reach out!
+    I'm currently working on a
+    <a class="link" href="https://getweek.pro">
+      <img src="/icons/week.svg" alt="week icon" width="16" height="16" />
+      <span>Week</span>
+    </a>
+    project in my spare time.
     <br />
-    You can find me here:
+    If you have any question or just want to say hi,<br /> feel free to reach out to me on:
   </p>
-  <div class="links">
+  <div class="links block" style="animation-delay: 0.2s">
     <a target="_blank" href="https://x.com/lane_en">
       <X width="16" height="16" />
+    </a>
+    <a target="_blank" href="https://t.me/eden_lane">
+      <Telegram width="16" height="16" />
     </a>
     <a target="_blank" href="https://github.com/eden-lane">
       <Github width="16" height="16" />
@@ -68,11 +105,15 @@ import { Github } from "../components/icons/Github";
   </div>
   <hr />
   <div class="blocks">
-    <Block>
-      <LastfmBlock client:load />
-    </Block>
-    <Block>
-      <AppsBlock client:load />
-    </Block>
+    <div class="block" style="animation-delay: 0.4s">
+      <Block>
+        <LastfmBlock client:load />
+      </Block>
+    </div>
+    <div class="block" style="animation-delay: 0.6s">
+      <Block>
+        <AppsBlock client:load />
+      </Block>
+    </div>
   </div>
 </MainLayout>
