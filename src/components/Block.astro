@@ -1,18 +1,20 @@
 ---
 ---
 <style>
-  .block {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 8px;
-    transition: all 0.3s ease;
-    border: 1px solid #e8e8e8;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
-  }
+    .block {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 8px;
+        transition: all 0.3s ease;
+        border: 1px solid #e8e8e8;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        width: 100%;
+    }
 
-  .block:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+    .block:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 </style>
 <div class="block">
   <slot />

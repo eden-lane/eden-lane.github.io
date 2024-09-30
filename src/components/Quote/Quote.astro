@@ -1,0 +1,15 @@
+---
+import quotes from '../../data/quotes.json';
+
+const quote = quotes[Math.floor(Math.random() * quotes.length)];
+---
+<style>
+  footer {
+      font-size: 13px;
+      text-align: center;
+      color: #777;
+  }
+</style>
+<footer>
+  {quote}
+</footer>
