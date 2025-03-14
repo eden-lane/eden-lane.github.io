@@ -1,0 +1,47 @@
+---
+import CheckIcon from "../icons/check.svg";
+---
+
+<style>
+  li {
+    display: grid;
+    list-style: none;
+    align-items: center;
+    column-gap: 8px;
+    padding: 0;
+    margin-left: 0;
+    grid-template-columns: auto 1fr;
+  }
+
+  li + li {
+    margin-top: 8px;
+  }
+
+  .icon {
+    color: #2ccb72;
+  }
+
+  .title {
+    color: #222;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .description {
+    color: #555;
+    font-size: 14px;
+    grid-column: 2;
+  }
+</style>
+
+<li>
+  <span class="icon">
+    <CheckIcon />
+  </span>
+  <div class="title">
+    <slot />
+  </div>
+  <div class="description">
+    <slot name="description" />
+  </div>
+</li>

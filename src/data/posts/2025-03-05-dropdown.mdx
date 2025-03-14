@@ -1,0 +1,48 @@
+---
+title: "Dropdown"
+slug: "dropdown"
+date: 2025-03-05
+---
+
+import Features from "../../components/blog/common/Features/Features.astro";
+import Feature from "../../components/blog/common/Features/Feature.astro";
+import { Playground } from "../../components/blog/dropdown/Playground";
+
+# Dropdown
+
+Recently, I’ve started to rebuild the UI library for my project from scratch.
+I decided to do it for a few reasons. When I started developing **Kona**,
+I didn’t know all the requirements and ended up with a bunch of different
+components that had the same role. For example, I had a few dropdowns
+for different cases. It was hard to support and use.
+
+New menu supports the following features:
+
+<Features>
+  <Feature>
+    <span>Supports submenus</span>
+    <span slot="description">
+      Structure of the menu configuration allows multiple levels of nesting.
+    </span>
+  </Feature>
+  <Feature>
+    <span>Always within the viewport</span>
+    <span slot="description">
+      The menu tries to avoid being rendered outside of visible part of the
+      screen.
+    </span>
+  </Feature>
+  <Feature>
+    <span>Customizable</span>
+    <span slot="description">Render whatever you want.</span>
+  </Feature>
+  <Feature>
+    <span>Safe-areas</span>
+    <span slot="description">
+      Avoid selecting a nearby menu item while selecting an item from the
+      submenu.
+    </span>
+  </Feature>
+</Features>
+
+<Playground client:only />

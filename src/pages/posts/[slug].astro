@@ -1,0 +1,23 @@
+---
+import MainLayout from "../../layouts/main.astro";
+import { getEntry, render } from "astro:content";
+const { slug } = Astro.params;
+if (slug === undefined) {
+  return Astro.redirect("/404");
+}
+const post = await getEntry("posts", slug);
+if (post === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await render(post);
+---
+
+<style>
+  :global(p) {
+    font-size: 15px;
+  }
+</style>
+<MainLayout>
+  <Content />
+</MainLayout>
