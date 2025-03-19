@@ -17,7 +17,13 @@ const { Content } = await render(post);
   :global(p) {
     font-size: 15px;
   }
+
+  a {
+    color: #1f8be4;
+    text-decoration: none;
+  }
 </style>
 <MainLayout>
+  <a href="/">← Back</a>
   <Content />
 </MainLayout>

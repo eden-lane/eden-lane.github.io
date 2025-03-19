@@ -9,6 +9,7 @@ import { Layers } from "../components/icons/Layers";
 import { Github } from "../components/icons/Github";
 import { getCollection } from "astro:content";
 import { WidgetHeader } from "../components/WidgetHeader";
+import { format } from "date-fns";
 
 const posts = await getCollection("posts");
 ---
@@ -100,15 +101,24 @@ const posts = await getCollection("posts");
 
   .post {
     font-size: 14px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .post:hover {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   .post a {
     color: #1f8be4;
     text-decoration: none;
+    display: flex;
+    justify-content: space-between;
   }
 
-  .post a:hover {
-    text-decoration: underline;
+  .post a span:last-child {
+    color: #4d4d4d;
+    font-size: 12px;
   }
 </style>
 <MainLayout title="eden lane">
@@ -160,7 +170,12 @@ const posts = await getCollection("posts");
             {
               posts.map((post) => (
                 <div class="post">
-                  <a href={`/posts/${post.data.slug}`}>{post.data.title}</a>
+                  <a href={`/posts/${post.data.slug}`}>
+                    <span>{post.data.title}</span>
+                    <span class="date">
+                      {format(post.data.date, "d MMMM yyyy")}
+                    </span>
+                  </a>
                 </div>
               ))
             }
