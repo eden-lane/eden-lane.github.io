@@ -3,13 +3,47 @@ import Head from "../components/Head.astro";
 import ZoomableImage from "../components/ZoomableImage.astro";
 ---
 
+<script>
+  // Function to handle highlighting
+  function setupHighlighting() {
+    // Get all elements with data-highlight attribute
+    const highlightTriggers = document.querySelectorAll("[data-highlight]");
+
+    // Add event listeners to each trigger element
+    highlightTriggers.forEach((trigger) => {
+      const highlightKey = trigger.getAttribute("data-highlight");
+
+      // Find corresponding elements to highlight
+      const highlightTargets = document.querySelectorAll(
+        `[data-highlight-text="${highlightKey}"]`,
+      );
+
+      // Add mouseenter event listener
+      trigger.addEventListener("mouseenter", () => {
+        highlightTargets.forEach((target) => {
+          target.classList.add("highlighted");
+        });
+      });
+
+      // Add mouseleave event listener
+      trigger.addEventListener("mouseleave", () => {
+        highlightTargets.forEach((target) => {
+          target.classList.remove("highlighted");
+        });
+      });
+    });
+  }
+
+  // Run the setup when the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", setupHighlighting);
+</script>
 <style>
   main {
     font-family: "Open Sans Variable", sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #3a3a54;
-    max-width: 800px;
+    max-width: 450px;
     margin: 128px auto;
     padding: 0 16px;
   }
@@ -20,23 +54,25 @@ import ZoomableImage from "../components/ZoomableImage.astro";
 
   section {
     display: flex;
-    column-gap: 64px;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
 
   section + section {
-    margin-top: 64px;
+    margin-top: 32px;
   }
 
-  section > * {
-    flex: 1 0;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  section > .text {
-    padding-top: 12px;
+  li {
+    opacity: 0.7;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
   }
 
   .project-title {
@@ -65,14 +101,30 @@ import ZoomableImage from "../components/ZoomableImage.astro";
     font-size: 12px;
     font-weight: 600;
   }
+
+  [data-hightlight] {
+    cursor: pointer;
+  }
+
+  [data-highlight-text] {
+    background-image: linear-gradient(to right, #ccf479 0%, #ccf479 100%);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.8s ease-in-out;
+  }
+
+  .highlighted {
+    background-size: 100% 100%;
+  }
 </style>
 
 <Head title="Linear" />
-
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
+></script>
 <main>
   <h1>Hello, Linear Team!</h1>
   <section>
-    <h2>When I first met Linear</h2>
+    <h2>Why I want to join Linear</h2>
     <div class="text">
       <p>A week ago marked 4 years of happy usage of Linear.</p>
       <ZoomableImage
@@ -81,38 +133,152 @@ import ZoomableImage from "../components/ZoomableImage.astro";
         alt="Linear first letter"
       />
       <p>
-        It was love at first sight. I liked the clean and simple design, the
-        idea of the app, and the attention to detail. It was Linear that taught
-        me that when you move the cursor to the submenu, you need to take into
-        account its path and not activate other menu items along the way. I’ve
-        never thought about that kind of adjustment for better UX. I haven’t
-        dreamed to join the team at that time, but I decided that I want to
-        strive to the same level of care about the end user that you guys have.
+        I love the phrase Karri Saarinen wrote in the post «Why is quality so
+        rare» - <em
+          >«In a crowded market of issue tracking tools, Linear stood out
+          through quality»</em
+        >. This is exactly what I felt when I first opened Linear 4 years ago.
+        It was obvious that every detail of the app was polished to perfection.
+        One of the things that truly amazed me was the fact that you have to
+        take into account the path that the user is leading their mouse through
+        while navigating nested menus:
+      </p>
+      <blockquote class="twitter-tweet">
+        <p lang="en" dir="ltr">
+          Fun little detail that just landed in <a
+            href="https://twitter.com/linear_app?ref_src=twsrc%5Etfw"
+            >@linear_app</a
+          >: <br /><br />When navigating in the contextual menu it’s now easier
+          to move the mouse to sub-menus, since we paint out a little “safe
+          area” between the cursor and the menu.<br /><br />(The area is
+          highlighted in the clip.) <a href="https://t.co/HcMJyAuszA"
+            >pic.twitter.com/HcMJyAuszA</a
+          >
+        </p>&mdash; Andreas Eldh (@eldh) <a
+          href="https://twitter.com/eldh/status/1300485830302203910?ref_src=twsrc%5Etfw"
+          >August 31, 2020</a
+        >
+      </blockquote>
+
+      <p>
+        Until that tweet, I didn’t think about it. I didn’t know that you could
+        care so much about little details here and there.
       </p>
       <p>
-        The stars aligned in such a way that I’m looking for a job at exactly
-        the same time you have a position. I know that you have incredibly high
-        standards, but I would like to try to tell a little about myself and see
-        if I fit those standards.
+        After that, I decided to strive for the same level of attention when
+        building things.
       </p>
     </div>
   </section>
 
   <section>
-    <div>
-      <h2>About me</h2>
-    </div>
+    <h2>My experience</h2>
+    <h3>Interactive Design Institute</h3>
+    <p>
+      <strong>What I learned</strong>
+      <ul>
+        <li data-highlight="h1">
+          To be the person who cares about the product the most
+        </li>
+        <li data-highlight="h2">To be proactive</li>
+      </ul>
+    </p>
     <div class="text">
-      <p>I'm a frontend engineer with more than 10 years of experience.</p>
       <p>
-        I love to design and build web and desktop applications so much that I
-        even do it in my free time. To better understand design, I asked my
-        designer friend to mentor me.
+        One of my first jobs was the Junior Frontend Engineer position at
+        Interactive Design Institute. My brightest memory of working at this
+        place was the time I found out that one of our high traffic pages took 8
+        seconds to load. We had a lot of text on this page and despite the fact
+        that we didn’t show it until user asks us to show it, we loaded it
+        immediately at the page show. Everyone knew about this, but no one
+        considered this a problem. I knew little at the time (I just started my
+        career), but I already started to notice best practices on the other
+        sites and apps. <span data-highlight-text="h2"
+          >I asked for a permission to fix the problem and in an hour the
+          solution that decreased load time to less than a second was ready.</span
+        >
       </p>
       <p>
-        I also like to help other people. I've been a mentor for few people and
-        I constantly help other developers with their issues in React and NodeJS
-        chats.
+        <span data-highlight-text="h1">
+          That it was the first time I realized that I shouldn’t rely on other
+          people, I should be the one who cares.
+        </span>
+      </p>
+    </div>
+
+    <h3>Avito</h3>
+    <strong>What I learned</strong>
+    <ul>
+      <li data-highlight="h3">Understand other peoples code</li>
+      <li data-highlight="h4">To see a product from user's perspective</li>
+    </ul>
+    <div class="text">
+      <p>
+        In this company, I started to refactor old code from jQuery to React.
+        <span data-highlight-text="h3"
+          >That task taught me to understand other people’s code and their
+          intentions</span
+        >. Later, we started to build a new feature - improved Value Added
+        Services, which significantly boosted our conversion. <span
+          data-highlight-text="h4"
+          >I participated in UX demos with real users to better understand the
+          problems they encounter. Until this demo, I had never tried to look at
+          my apps through the eyes of the users. I never realized that things
+          that are obvious to you might be a mystery to other people</span
+        >. For example, we had an important text that users were supposed to
+        read, but according to the eye-tracking device that we used, no one even
+        saw it!
+      </p>
+    </div>
+
+    <h3>RedMadRobot</h3>
+    <strong>What I learned</strong>
+    <ul>
+      <li data-highlight="h5">
+        Think about the future while building products
+      </li>
+      <li data-highlight="h6">Optimize own workflows</li>
+      <li data-highlight="h7">Learn new things not only at work</li>
+    </ul>
+    <div class="text">
+      <p>
+        This is an outsourcing company, so, as you can imagine, we were building
+        a number of products instead of concentrating on one or two. Some people
+        consider this not useful experience, but I’m so grateful to this company
+        for teaching me almost everything I know to this moment. <span
+          data-highlight-text="h5"
+          >I learned how to build products from scratch and to architect them in
+          a way that won’t hurt in the future</span
+        >. <span data-highlight-text="h6"
+          >I also realized that you need to optimize the developer experience
+          too to deliver a better result. For example, when you start a new
+          product twice a year, you need to shorten the time it takes to create
+          a new project. I’ve built a solution for that - a CLI instrument that
+          creates a project from template and allows to add new files based on
+          our company guidelines</span
+        >. <span data-highlight-text="h7"
+          >In this company, I also came to the realization that you have to move
+          twice as fast as you can to get somewhere. I started to read more,
+          watch more, and build more in my spare time</span
+        >.
+      </p>
+    </div>
+
+    <h3>EasyBiz</h3>
+    <strong>What I learned</strong>
+    <ul>
+      <li data-highlight="h8">To improve things in order to stand out</li>
+    </ul>
+    <div class="text">
+      <p>
+        We were a small startup with a lot of competitors. <span
+          data-highlight-text="h8"
+          >In situation like this you really need to stand out to make an
+          impression. I refactored some code to make our app faster and more
+          pleasant to use. For example, I’ve rebuilt our table component from
+          the scratch. It became twice as fast, the loading time became so
+          small, the end user didn’t even have time to notice loading skeletons</span
+        >.
       </p>
     </div>
   </section>
