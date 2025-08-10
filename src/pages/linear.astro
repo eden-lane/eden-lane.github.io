@@ -94,6 +94,15 @@ import ZoomableImage from "../components/ZoomableImage.astro";
     margin: 0;
   }
 
+  .project-link {
+    text-decoration: none;
+    color: #117be5;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .project-info {
     display: flex;
     flex-direction: column;
@@ -366,7 +375,9 @@ import ZoomableImage from "../components/ZoomableImage.astro";
       <div>
         <div class="project-title">
           <img src="/icons/kona.svg" alt="Kona logo" width="32" height="32" />
-          <h3>Kona</h3>
+          <a class="project-link" href="https://kona.to" target="_blank">
+            <h3>Kona</h3>
+          </a>
         </div>
         <div class="project-info">
           <div>
@@ -407,7 +418,13 @@ import ZoomableImage from "../components/ZoomableImage.astro";
             width="38"
             height="34"
           />
-          <h3>Kona Editor</h3>
+          <a
+            class="project-link"
+            href="http://use-kona.github.io/editor/"
+            target="_blank"
+          >
+            <h3>Kona Editor</h3>
+          </a>
         </div>
         <div class="project-info">
           <div>
@@ -434,7 +451,7 @@ import ZoomableImage from "../components/ZoomableImage.astro";
     </section>
   </section>
   <section class="text-center">
-    <p>I'm sure together we can make Linear even better.</p>
+    <p>I'm sure together we can make Linear even better!</p>
     <p><a href="mailto:edencore@gmail.com">Contact me</a></p>
   </section>
 </main>
