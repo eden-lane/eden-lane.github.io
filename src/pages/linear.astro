@@ -41,7 +41,7 @@ import ZoomableImage from "../components/ZoomableImage.astro";
   main {
     font-family: "Open Sans Variable", sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 15px;
     color: #3a3a54;
     max-width: 450px;
     margin: 128px auto;
@@ -50,6 +50,10 @@ import ZoomableImage from "../components/ZoomableImage.astro";
 
   h1 {
     text-align: center;
+  }
+
+  h3 {
+    margin-bottom: 4px;
   }
 
   section {
@@ -64,7 +68,7 @@ import ZoomableImage from "../components/ZoomableImage.astro";
   ul {
     list-style: none;
     padding: 0;
-    margin-top: 0;
+    margin-top: 4px;
     margin-bottom: 0;
   }
 
@@ -75,10 +79,19 @@ import ZoomableImage from "../components/ZoomableImage.astro";
     text-decoration-style: dotted;
   }
 
+  li + li {
+    margin-top: 2px;
+  }
+
   .project-title {
     display: flex;
     column-gap: 8px;
     align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .project-title h3 {
+    margin: 0;
   }
 
   .project-info {
@@ -93,6 +106,12 @@ import ZoomableImage from "../components/ZoomableImage.astro";
     gap: 4px;
   }
 
+  .date {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+
   .tag {
     flex-shrink: 0;
     border-radius: 6px;
@@ -100,6 +119,22 @@ import ZoomableImage from "../components/ZoomableImage.astro";
     padding: 2px 4px;
     font-size: 12px;
     font-weight: 600;
+  }
+
+  .experience-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .experiences-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .reversed {
+    flex-direction: column-reverse;
   }
 
   [data-hightlight] {
@@ -115,6 +150,10 @@ import ZoomableImage from "../components/ZoomableImage.astro";
 
   .highlighted {
     background-size: 100% 100%;
+  }
+
+  .text-center {
+    text-align: center;
   }
 </style>
 
@@ -171,182 +210,231 @@ import ZoomableImage from "../components/ZoomableImage.astro";
     </div>
   </section>
 
+  <script>
+    function handleChangeSorting(event: any) {
+      const selectedValue = event.target.value;
+      const experiences = document.querySelector(".experiences-list")!;
+      if (selectedValue === "first") {
+        experiences.classList.toggle("reversed", false);
+      } else {
+        experiences.classList.toggle("reversed", true);
+      }
+    }
+
+    const orderSelector = document.getElementById("order-selector")!;
+    orderSelector.addEventListener("change", handleChangeSorting);
+  </script>
+
   <section>
-    <h2>My experience</h2>
-    <h3>Interactive Design Institute</h3>
-    <p>
-      <strong>What I learned</strong>
-      <ul>
-        <li data-highlight="h1">
-          To be the person who cares about the product the most
-        </li>
-        <li data-highlight="h2">To be proactive</li>
-      </ul>
-    </p>
-    <div class="text">
-      <p>
-        One of my first jobs was the Junior Frontend Engineer position at
-        Interactive Design Institute. My brightest memory of working at this
-        place was the time I found out that one of our high traffic pages took 8
-        seconds to load. We had a lot of text on this page and despite the fact
-        that we didn’t show it until user asks us to show it, we loaded it
-        immediately at the page show. Everyone knew about this, but no one
-        considered this a problem. I knew little at the time (I just started my
-        career), but I already started to notice best practices on the other
-        sites and apps. <span data-highlight-text="h2"
-          >I asked for a permission to fix the problem and in an hour the
-          solution that decreased load time to less than a second was ready.</span
-        >
-      </p>
-      <p>
-        <span data-highlight-text="h1">
-          That it was the first time I realized that I shouldn’t rely on other
-          people, I should be the one who cares.
-        </span>
-      </p>
+    <div class="experience-header">
+      <h2>My experience</h2>
+      <select id="order-selector">
+        <option value="first">First - Last</option>
+        <option value="last">Last - First</option>
+      </select>
     </div>
+    <div class="experiences-list">
+      <div>
+        <h3>Interactive Design Institute</h3>
+        <div class="date">May 2016 - April 2017 (1 year)</div>
+        <p>
+          <strong>What I learned</strong>
+          <ul>
+            <li data-highlight="h1">
+              To be the person who cares about the product the most
+            </li>
+            <li data-highlight="h2">To be proactive</li>
+          </ul>
+        </p>
+        <div class="text">
+          <p>
+            One of my first jobs was the Junior Frontend Engineer position at
+            Interactive Design Institute. My brightest memory of working at this
+            place was the time I found out that one of our high traffic pages
+            took 8 seconds to load. We had a lot of text on this page and
+            despite the fact that we didn’t show it until user asks us to show
+            it, we loaded it immediately at the page show. Everyone knew about
+            this, but no one considered this a problem. I knew little at the
+            time (I just started my career), but I already started to notice
+            best practices on the other sites and apps. <span
+              data-highlight-text="h2"
+              >I asked for a permission to fix the problem and in an hour the
+              solution that decreased load time to less than a second was ready.</span
+            >
+          </p>
+          <p>
+            <span data-highlight-text="h1">
+              That it was the first time I realized that I shouldn’t rely on
+              other people, I should be the one who cares.
+            </span>
+          </p>
+        </div>
+      </div>
 
-    <h3>Avito</h3>
-    <strong>What I learned</strong>
-    <ul>
-      <li data-highlight="h3">Understand other peoples code</li>
-      <li data-highlight="h4">To see a product from user's perspective</li>
-    </ul>
-    <div class="text">
-      <p>
-        In this company, I started to refactor old code from jQuery to React.
-        <span data-highlight-text="h3"
-          >That task taught me to understand other people’s code and their
-          intentions</span
-        >. Later, we started to build a new feature - improved Value Added
-        Services, which significantly boosted our conversion. <span
-          data-highlight-text="h4"
-          >I participated in UX demos with real users to better understand the
-          problems they encounter. Until this demo, I had never tried to look at
-          my apps through the eyes of the users. I never realized that things
-          that are obvious to you might be a mystery to other people</span
-        >. For example, we had an important text that users were supposed to
-        read, but according to the eye-tracking device that we used, no one even
-        saw it!
-      </p>
-    </div>
+      <div>
+        <h3>Avito</h3>
+        <div class="date">October 2017 - December 2018 (1 year 3 months)</div>
+        <strong>What I learned</strong>
+        <ul>
+          <li data-highlight="h3">Understand other peoples code</li>
+          <li data-highlight="h4">To see a product from user's perspective</li>
+        </ul>
+        <div class="text">
+          <p>
+            In this company, I started to refactor old code from jQuery to
+            React.
+            <span data-highlight-text="h3"
+              >That task taught me to understand other people’s code and their
+              intentions</span
+            >. Later, we started to build a new feature - improved Value Added
+            Services, which significantly boosted our conversion. <span
+              data-highlight-text="h4"
+              >I participated in UX demos with real users to better understand
+              the problems they encounter. Until this demo, I had never tried to
+              look at my apps through the eyes of the users. I never realized
+              that things that are obvious to you might be a mystery to other
+              people</span
+            >. For example, we had an important text that users were supposed to
+            read, but according to the eye-tracking device that we used, no one
+            even saw it!
+          </p>
+        </div>
+      </div>
 
-    <h3>RedMadRobot</h3>
-    <strong>What I learned</strong>
-    <ul>
-      <li data-highlight="h5">
-        Think about the future while building products
-      </li>
-      <li data-highlight="h6">Optimize own workflows</li>
-      <li data-highlight="h7">Learn new things not only at work</li>
-    </ul>
-    <div class="text">
-      <p>
-        This is an outsourcing company, so, as you can imagine, we were building
-        a number of products instead of concentrating on one or two. Some people
-        consider this not useful experience, but I’m so grateful to this company
-        for teaching me almost everything I know to this moment. <span
-          data-highlight-text="h5"
-          >I learned how to build products from scratch and to architect them in
-          a way that won’t hurt in the future</span
-        >. <span data-highlight-text="h6"
-          >I also realized that you need to optimize the developer experience
-          too to deliver a better result. For example, when you start a new
-          product twice a year, you need to shorten the time it takes to create
-          a new project. I’ve built a solution for that - a CLI instrument that
-          creates a project from template and allows to add new files based on
-          our company guidelines</span
-        >. <span data-highlight-text="h7"
-          >In this company, I also came to the realization that you have to move
-          twice as fast as you can to get somewhere. I started to read more,
-          watch more, and build more in my spare time</span
-        >.
-      </p>
-    </div>
+      <div>
+        <h3>RedMadRobot</h3>
+        <div class="date">May 2019 - July 2024 (5 years)</div>
+        <strong>What I learned</strong>
+        <ul>
+          <li data-highlight="h5">
+            Think about the future while building products
+          </li>
+          <li data-highlight="h6">Optimize own workflows</li>
+          <li data-highlight="h7">Learn new things not only at work</li>
+        </ul>
+        <div class="text">
+          <p>
+            This is an outsourcing company, so, as you can imagine, we were
+            building a number of products instead of concentrating on one or
+            two. Some people consider this not useful experience, but I’m so
+            grateful to this company for teaching me almost everything I know to
+            this moment. <span data-highlight-text="h5"
+              >I learned how to build products from scratch and to architect
+              them in a way that won’t hurt in the future</span
+            >. <span data-highlight-text="h6"
+              >I also realized that you need to optimize the developer
+              experience too to deliver a better result. For example, when you
+              start a new product twice a year, you need to shorten the time it
+              takes to create a new project. I’ve built a solution for that - a
+              CLI instrument that creates a project from template and allows to
+              add new files based on our company guidelines</span
+            >. <span data-highlight-text="h7"
+              >In this company, I also came to the realization that you have to
+              move twice as fast as you can to get somewhere. I started to read
+              more, watch more, and build more in my spare time</span
+            >.
+          </p>
+        </div>
+      </div>
 
-    <h3>EasyBiz</h3>
-    <strong>What I learned</strong>
-    <ul>
-      <li data-highlight="h8">To improve things in order to stand out</li>
-    </ul>
-    <div class="text">
-      <p>
-        We were a small startup with a lot of competitors. <span
-          data-highlight-text="h8"
-          >In situation like this you really need to stand out to make an
-          impression. I refactored some code to make our app faster and more
-          pleasant to use. For example, I’ve rebuilt our table component from
-          the scratch. It became twice as fast, the loading time became so
-          small, the end user didn’t even have time to notice loading skeletons</span
-        >.
-      </p>
+      <div>
+        <h3>EasyBiz</h3>
+        <div class="date">September 2024 - July 2025 (11 months)</div>
+        <strong>What I learned</strong>
+        <ul>
+          <li data-highlight="h8">To improve things in order to stand out</li>
+        </ul>
+        <div class="text">
+          <p>
+            We were a small startup with a lot of competitors. <span
+              data-highlight-text="h8"
+              >In situation like this you really need to stand out to make an
+              impression. I refactored some code to make our app faster and more
+              pleasant to use. For example, I’ve rebuilt our table component
+              from the scratch. It became twice as fast, the loading time became
+              so small, the end user didn’t even have time to notice loading
+              skeletons</span
+            >.
+          </p>
+        </div>
+      </div>
     </div>
-  </section>
-  <div>
-    <h2>My personal projects</h2>
-  </div>
-  <section>
     <div>
-      <div class="project-title">
-        <img src="/icons/kona.svg" alt="Kona logo" width="32" height="32" />
-        <h3>Kona</h3>
-      </div>
-      <div class="project-info">
-        <div>
-          <em>2021 - Present</em>
-        </div>
-        <div class="tags">
-          <span class="tag">React</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Fastify</span>
-          <span class="tag">GraphQL</span>
-          <span class="tag">react-hook-form</span>
-          <span class="tag">React-DnD</span>
-        </div>
-      </div>
+      <h2>My personal projects</h2>
     </div>
-    <div class="text">
-      <p>
-        This project is started as a way to learn something new that could help
-        me on my full-time job, but now it is something very important to me.
-      </p>
-      <p>
-        Most of the components (some of which are quite complex) used in this
-        project are built by me. For example, the full calendar component uses
-        the drag-and-drop technique extensively, and I've spent a lot of time
-        making it work correctly. The calendar is also scrollable in each
-        direction infinitely, which is not very common for such kinds of
-        applications.
-      </p>
-    </div>
+    <section>
+      <div>
+        <div class="project-title">
+          <img src="/icons/kona.svg" alt="Kona logo" width="32" height="32" />
+          <h3>Kona</h3>
+        </div>
+        <div class="project-info">
+          <div>
+            <em>2021 - Present</em>
+          </div>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Fastify</span>
+            <span class="tag">GraphQL</span>
+            <span class="tag">react-hook-form</span>
+            <span class="tag">React-DnD</span>
+          </div>
+        </div>
+      </div>
+      <div class="text">
+        <p>
+          This project is started as a way to learn something new that could
+          help me on my full-time job, but now it is something very important to
+          me.
+        </p>
+        <p>
+          Most of the components (some of which are quite complex) used in this
+          project are built by me. For example, the full calendar component uses
+          the drag-and-drop technique extensively, and I've spent a lot of time
+          making it work correctly. The calendar is also scrollable in each
+          direction infinitely, which is not very common for such kinds of
+          applications.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div>
+        <div class="project-title">
+          <img
+            src="/images/editor.png"
+            alt="Kona logo"
+            width="38"
+            height="34"
+          />
+          <h3>Kona Editor</h3>
+        </div>
+        <div class="project-info">
+          <div>
+            <em>2025 - Present</em>
+          </div>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Slate.js</span>
+          </div>
+        </div>
+      </div>
+      <div class="text">
+        <p>
+          I absolutely adore text editors! Text editor was the first project
+          that I started building ~20 years ago to learn programming.
+        </p>
+        <p>
+          I've chosen Slate framework for building this project. It's a powerful
+          and very complex library, but I've been able to learn a lot from it.
+          All the plugins for Kona Editor are built by me.
+        </p>
+      </div>
+    </section>
   </section>
-  <section>
-    <div>
-      <div class="project-title">
-        <img src="/images/editor.png" alt="Kona logo" width="38" height="34" />
-        <h3>Kona Editor</h3>
-      </div>
-      <div class="project-info">
-        <div>
-          <em>2025 - Present</em>
-        </div>
-        <div class="tags">
-          <span class="tag">React</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Slate.js</span>
-        </div>
-      </div>
-    </div>
-    <div class="text">
-      <p>
-        I absolutely adore text editors! Text editor was the first project that
-        I started building ~20 years ago to learn programming.
-      </p>
-      <p>
-        I've chosen Slate framework for building this project. It's a powerful
-        and very complex library, but I've been able to learn a lot from it. All
-        the plugins for Kona Editor are built by me.
-      </p>
-    </div>
+  <section class="text-center">
+    <p>I'm sure together we can make Linear even better.</p>
+    <p><a href="mailto:edencore@gmail.com">Contact me</a></p>
   </section>
 </main>
