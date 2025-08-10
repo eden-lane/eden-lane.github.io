@@ -1,58 +1,51 @@
 ---
 import "@fontsource-variable/open-sans";
+import Head from "../components/Head.astro";
 import Quote from "../components/Quote/Quote.astro";
 const { title } = Astro.props;
 ---
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title}</title>
-  <script defer src="https://umami.kona.to/script.js" data-website-id="e892aa2c-89b5-4928-ae58-92e06bf54063"></script>
-</head>
-<body>
-<style>
-    * {
+  <Head />
+  <body>
+    <style>
+      * {
         box-sizing: border-box;
-    }
+        font-family: "Open Sans Variable", sans-serif;
+        font-weight: 300;
+      }
 
-    body {
+      body {
         background-color: #f8f8f8;
-        font-family: 'Open Sans Variable', sans-serif;
-        color: #4d4d4d;
         padding: 0;
         margin: 0;
-        width: 100vw;
-        height: 100vh;
-    }
+      }
 
-    main {
+      main {
         margin: 0 auto;
         padding: 64px 16px 8px;
         max-width: 600px;
-        height: 100vh;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
-    }
+      }
 
-    h1 {
+      h1 {
         font-size: 16px;
         font-weight: 500;
-    }
+      }
 
-    .content {
+      .content {
         flex: 1 0;
         overflow: hidden auto;
-    }
-</style>
-<main>
-  <h1>{title}</h1>
-  <section class="content">
-    <slot />
-  </section>
-  <Quote />
-</main>
-</body>
+      }
+    </style>
+    <main>
+      <h1>{title}</h1>
+      <section class="content">
+        <slot />
+      </section>
+      <Quote />
+    </main>
+  </body>
 </html>

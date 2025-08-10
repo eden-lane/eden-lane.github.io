@@ -1,0 +1,195 @@
+---
+import Head from "../components/Head.astro";
+---
+
+<style>
+  main {
+    font-family: "Open Sans Variable", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3a3a54;
+    max-width: 800px;
+    margin: 128px auto;
+    padding: 0 16px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  section {
+    display: flex;
+    column-gap: 64px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  section + section {
+    margin-top: 64px;
+  }
+
+  section > * {
+    flex: 1 0;
+  }
+
+  section > .text {
+    padding-top: 12px;
+  }
+
+  .project-title {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag {
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+</style>
+
+<Head title="Linear" />
+
+<main>
+  <h1>Hello, Linear Team!</h1>
+  <section>
+    <h2>When I first met Linear</h2>
+    <div class="text">
+      <p>A week ago marked 4 years of happy usage of Linear.</p>
+      <img
+        width="100%"
+        src="/images/linear-first-letter.png"
+        alt="Linear first letter"
+      />
+      <p>
+        It was love at first sight. I liked the clean and simple design, the
+        idea of the app, and the attention to detail. It was Linear that taught
+        me that when you move the cursor to the submenu, you need to take into
+        account its path and not activate other menu items along the way. I’ve
+        never thought about that kind of adjustment for better UX. I haven’t
+        dreamed to join the team at that time, but I decided that I want to
+        strive to the same level of care about the end user that you guys have.
+      </p>
+      <p>
+        The stars aligned in such a way that I’m looking for a job at exactly
+        the same time you have a position. I know that you have incredibly high
+        standards, but I would like to try to tell a little about myself and see
+        if I fit those standards.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <h2>About me</h2>
+    </div>
+    <div class="text">
+      <p>I'm a frontend engineer with more than 10 years of experience.</p>
+      <p>
+        I love to design and build web and desktop applications so much that I
+        even do it in my free time. To better understand design, I asked my
+        designer friend to mentor me.
+      </p>
+      <p>
+        I also like to help other people. I've been a mentor for few people and
+        I constantly help other developers with their issues in React and NodeJS
+        chats.
+      </p>
+    </div>
+  </section>
+  <div>
+    <h2>My personal projects</h2>
+  </div>
+  <section>
+    <div>
+      <div class="project-title">
+        <img
+          src="/public/icons/kona.svg"
+          alt="Kona logo"
+          width="32"
+          height="32"
+        />
+        <h3>Kona</h3>
+      </div>
+      <div class="project-info">
+        <div>
+          <em>2021 - Present</em>
+        </div>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Fastify</span>
+          <span class="tag">GraphQL</span>
+          <span class="tag">react-hook-form</span>
+          <span class="tag">React-DnD</span>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <p>
+        This project is started as a way to learn something new that could help
+        me on my full-time job, but now it is something very important to me.
+      </p>
+      <p>
+        Most of the components (some of which are quite complex) used in this
+        project are built by me. For example, the full calendar component uses
+        the drag-and-drop technique extensively, and I've spent a lot of time
+        making it work correctly. The calendar is also scrollable in each
+        direction infinitely, which is not very common for such kinds of
+        applications.
+      </p>
+    </div>
+  </section>
+  <section>
+    <div>
+      <div class="project-title">
+        <img
+          src="/public/images/editor.png"
+          alt="Kona logo"
+          width="38"
+          height="34"
+        />
+        <h3>Kona Editor</h3>
+      </div>
+      <div class="project-info">
+        <div>
+          <em>2025 - Present</em>
+        </div>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Slate.js</span>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <p>
+        I absolutely adore text editors! Text editor was the first project that
+        I started building ~20 years ago to learn programming.
+      </p>
+      <p>
+        I've chosen Slate framework for building this project. It's a powerful
+        and very complex library, but I've been able to learn a lot from it. All
+        the plugins for Kona Editor are built by me.
+      </p>
+    </div>
+  </section>
+</main>

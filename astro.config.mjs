@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 import mdx from "@astrojs/mdx";
 
@@ -10,7 +10,4 @@ export default defineConfig({
   output: "server",
   integrations: [react(), mdx()],
   adapter: vercel({}),
-  experimental: {
-    svg: true,
-  },
 });
