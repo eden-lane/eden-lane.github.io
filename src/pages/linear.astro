@@ -1,6 +1,7 @@
 ---
 import Head from "../components/Head.astro";
 import ZoomableImage from "../components/ZoomableImage.astro";
+import Accordion from "../components/Accordion.astro";
 ---
 
 <script>
@@ -365,6 +366,16 @@ import ZoomableImage from "../components/ZoomableImage.astro";
               skeletons</span
             >.
           </p>
+          <Accordion title="Technical details">
+            <p>
+              To rebuild the table component, I used Tanstack Query, Tanstack
+              Table and Tanstack Virtual libraries. Unfortunately
+              useInfiniteQuery hook doesn't support loading random page, it is
+              always should start from page 1. I had to create my own hook that
+              supports random page loading, because we needed to restore the
+              table state after the user navigates to another page.
+            </p>
+          </Accordion>
         </div>
       </div>
     </div>
@@ -407,6 +418,15 @@ import ZoomableImage from "../components/ZoomableImage.astro";
           direction infinitely, which is not very common for such kinds of
           applications.
         </p>
+        <Accordion title="Technical details">
+          <p>
+            The calendar component is one of the most complex components I've
+            ever built. It supports infinite scrolling in each direction,
+            virtualization and drag-and-drop. I didn't use any other libraries
+            except react-dnd to implement it, but I might add Tanstack Virtual
+            in the future as it removes so much complexity from the code.
+          </p>
+        </Accordion>
       </div>
     </section>
     <section>

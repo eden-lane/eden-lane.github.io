@@ -1,0 +1,135 @@
+---
+const { title, isOpenByDefault = false } = Astro.props;
+---
+
+<style>
+  .accordion {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  .accordion-header:hover {
+    background-color: #f1f5f9;
+  }
+
+  .accordion-header:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+  }
+
+  .accordion-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .accordion.open .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion.open .accordion-content {
+    max-height: 1000px;
+  }
+
+  .accordion-body {
+    padding: 0 8px;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+</style>
+
+<div class={`accordion ${isOpenByDefault ? "open" : ""}`}>
+  <button
+    class="accordion-header"
+    type="button"
+    aria-expanded={isOpenByDefault ? "true" : "false"}
+  >
+    <h3 class="accordion-title">{title}</h3>
+    <svg
+      class="accordion-icon"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+  <div class="accordion-content">
+    <div class="accordion-body">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  // Find all accordion components
+  const accordions = document.querySelectorAll(".accordion");
+
+  accordions.forEach((accordion) => {
+    const header = accordion.querySelector(".accordion-header");
+    const content = accordion.querySelector(".accordion-content");
+
+    if (!header || !content) return;
+
+    header.addEventListener("click", () => {
+      const isOpen = accordion.classList.contains("open");
+
+      // Toggle the accordion
+      accordion.classList.toggle("open");
+
+      // Update aria-expanded attribute
+      header.setAttribute("aria-expanded", isOpen ? "false" : "true");
+
+      // Update content max-height for smooth animation
+      if (accordion.classList.contains("open")) {
+        // Set max-height to the actual scroll height for smooth opening
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        // Reset to 0 for closing
+        content.style.maxHeight = "0";
+      }
+    });
+
+    // If accordion is open by default, set proper max-height
+    if (accordion.classList.contains("open")) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+</script>
