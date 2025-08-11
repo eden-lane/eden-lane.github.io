@@ -103,12 +103,14 @@ const { title, isOpenByDefault = false } = Astro.props;
   const accordions = document.querySelectorAll(".accordion");
 
   accordions.forEach((accordion) => {
-    const header = accordion.querySelector(".accordion-header");
-    const content = accordion.querySelector(".accordion-content");
-
-    if (!header || !content) return;
+    const header = accordion.querySelector(".accordion-header") as HTMLElement;
+    const content = accordion.querySelector(
+      ".accordion-content",
+    ) as HTMLElement;
 
     header.addEventListener("click", () => {
+      if (!header || !content) return;
+
       const isOpen = accordion.classList.contains("open");
 
       // Toggle the accordion
