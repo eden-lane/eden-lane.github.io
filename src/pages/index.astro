@@ -92,7 +92,13 @@ const posts = await getCollection("posts");
     column-gap: 2px;
     color: #1f8be4;
     text-decoration: none;
-    line-height: 1.5;
+    line-height: 14px;
+    vertical-align: middle;
+  }
+
+  .icon {
+    height: 16px;
+    margin-right: 2px;
   }
 
   .posts {
@@ -125,15 +131,33 @@ const posts = await getCollection("posts");
 </style>
 <MainLayout title="eden lane">
   <p class="block" style="animation-delay: 0s">
-    Hola! I'm a frontend engineer who loves to build things that make people's
+    ¡Hola! I'm a frontend engineer who loves to build things that make people's
     lives easier.
     <br />
     I'm currently working on a
     <a class="link" href="https://kona.to">
-      <img src="/icons/kona.svg" alt="kona icon" width="16" height="16" />
+      <img
+        class="icon"
+        src="/icons/kona.svg"
+        alt="kona icon"
+        width="16"
+        height="16"
+      />
       <span>Kona</span>
     </a>
     project in my spare time.
+    <br />
+    I also stream my development process on <a
+      class="link"
+      href="https://www.twitch.tv/eden_lane"
+      ><img
+        class="icon"
+        src="/icons/twitch.svg"
+        alt="twitch icon"
+        width="16"
+        height="16"
+      /> twitch</a
+    > sometimes.
     <br />
     If you have any question or just want to say hi,<br /> feel free to reach out
     to me on:
